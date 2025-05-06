@@ -1,75 +1,73 @@
 @charset "UTF-8";
 .schedule__container {
-    display: flex;
-    margin-top: 7vw;
-    gap: 50px;
+  display: flex;
+  margin-top: 7vw;
+  gap: 50px;
 }
 
-
-.schedule-container{
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Расстояние между элементами расписания */
-    width: auto; /* Или задайте макс. ширину, например max-width: 700px; */
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Расстояние между элементами расписания */
+  width: 100%; /* Или задайте макс. ширину, например max-width: 700px; */
+  max-width: 800px;
 }
 
 .schedule-item {
-    display: flex;
-    align-items: center;
-    width: 40%;
-    max-width: 700px;
-    min-width: 600px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 600px;
 }
 
 .duration-tag {
-    font-size: 14px;
-    color: #a39fc9; /* Лиловый цвет для "1,5 часа" */
-    margin-right: 15px; /* Отступ справа от тега длительности */
-    flex-shrink: 0; /* Чтобы тег не сжимался */
-    width: 60px; /* Примерная ширина, чтобы выровнять time-slot */
-    text-align: right; /* Выравнивание текста в теге по правому краю для лучшего вида */
+  font-size: 14px;
+  color: #a39fc9; /* Лиловый цвет для "1,5 часа" */
+  margin-right: 15px; /* Отступ справа от тега длительности */
+  flex-shrink: 0; /* Чтобы тег не сжимался */
+  width: 7.5%; /* Примерная ширина, чтобы выровнять time-slot */
+  text-align: right; /* Выравнивание текста в теге по правому краю для лучшего вида */
 }
 
 .time-slot {
-    background-color: #f0f0f0; /* Светло-серый фон для времени */
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 20px; /* Скругленные углы */
-    font-size: 14px;
-    font-weight: 500;
-    margin-right: 10px; /* Отступ между временем и описанием */
-    min-width: 100px; /* Минимальная ширина для блока времени */
-    text-align: center;
-    flex-shrink: 0;
+  background-color: #f0f0f0; /* Светло-серый фон для времени */
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 20px; /* Скругленные углы */
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px; /* Отступ между временем и описанием */
+  min-width: 100px; /* Минимальная ширина для блока времени */
+  text-align: center;
+  flex-shrink: 0;
 }
 
 /* Компенсация отсутствия .duration-tag для выравнивания */
 .schedule-item:not(:has(.duration-tag)) .time-slot {
-    margin-left: 75px; /* Примерно равно width .duration-tag + margin-right */
+  margin-left: 75px; /* Примерно равно width .duration-tag + margin-right */
 }
 
-
 .activity-description {
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    flex-grow: 1; /* Чтобы блок описания занимал доступное место */
-    text-align: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  flex-grow: 1; /* Чтобы блок описания занимал доступное место */
+  text-align: center;
 }
 
 .activity-yellow {
-    background-color: #fffacd; /* Светло-желтый */
-    color: #5c501a;
+  background-color: #fffacd; /* Светло-желтый */
+  color: #5c501a;
 }
 
 .activity-purple {
-    background-color: #b19cd9; /* Лиловый/Пурпурный */
-    color: #ffffff;
+  background-color: #b19cd9; /* Лиловый/Пурпурный */
+  color: #ffffff;
 }
 
 .activity-light { /* Для "игры на свежем воздухе" и т.д. - похоже на чуть другой оттенок */
-    background-color: #e6e6fa; /* Лавандовый / очень светло-серый с оттенком */
-    color: #333;
+  background-color: #e6e6fa; /* Лавандовый / очень светло-серый с оттенком */
+  color: #333;
 }
 
 /*# sourceMappingURL=schedule.css.map */

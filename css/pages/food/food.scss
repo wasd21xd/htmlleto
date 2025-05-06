@@ -1,0 +1,42 @@
+.h1__food {
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  font-size: clamp(50px, 4vh, 70px);
+  color: rgba(153, 126, 172, 1);
+}
+.food__container{
+  display: flex;
+  width: 100%;
+}
+
+.food-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  min-width: 1080px;
+  justify-content: space-around;
+}
+
+.left__food{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.right__food{
+
+  width: 50%;
+}
+
+.grid__food{
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+}
+
+.item__1{
+  width: 50%;
+  background-color: black;
+}
