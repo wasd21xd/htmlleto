@@ -1,7 +1,7 @@
 .header__container{
   display: flex;
   flex-direction: row;
-  gap: 300px;
+  gap: 10vw;
 }
 
 .right__card{
@@ -11,7 +11,7 @@
 .title__header{
   font-family: Inter,sans-serif;
   font-weight: 900;
-  font-size: 100px;
+  font-size: clamp(70px, 4vw, 100px);
   color: rgb(105,64,133);
 }
 
@@ -24,7 +24,7 @@
   padding-top: 80px;
     font-family: Inter, sans-serif;
     font-weight: 900;
-    font-size: 56px;
+    font-size: clamp(50px, 4vw, 60px);
     color: rgba(255, 255, 255,1);
     -webkit-text-stroke: 1.58px rgb(153, 126, 172,1);
     color: transparent;
@@ -36,7 +36,7 @@
   padding-left: 0;
   font-family: Inter, sans-serif;
   font-weight: 900;
-  font-size: 33.64px;
+  font-size:clamp(33px, 4vw, 20px);
   line-height: 120%;
   color: rgba(179, 121, 219, 1);
   padding-top: 40px;
@@ -86,7 +86,7 @@
   background: linear-gradient(180deg, #8F66AB 0%, #625FEB 100%);
   color: white;
   font-weight: 900;
-  font-size: 60px;
+  font-size: clamp(40px, 4vw, 60px);
   font-family: Inter, sans-serif;
   text-align: center;
   cursor: pointer;
@@ -110,7 +110,7 @@
   font-family: Inter, sans-serif;
   font-weight: 400;
   color:rgb(119, 92, 138);
-  font-size: 36px;
+  font-size: clamp(30px, 2vw, 36px);
 }
 
 
