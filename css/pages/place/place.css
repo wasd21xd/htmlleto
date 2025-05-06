@@ -1,8 +1,9 @@
 @charset "UTF-8";
 .place__container {
   display: flex;
-  margin-top: 10vw;
+  margin-top: 4vw;
   gap: 50px;
+
 }
 
 .left__place {
@@ -19,33 +20,45 @@
   height: 100%;
 }
 
-.title__place {
+.title__place{
   font-family: Inter, sans-serif;
   font-weight: 900;
-  font-size: clamp(40px, 4vh, 50px);
+  font-size: clamp(40px,4vh,50px);
+  color: #775C8A;
+}
+
+.text__place {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: #775C8A;
 }
 
 .right__place {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
   gap: 10px;
   width: 50%;
 }
 
 .place__1 {
-  grid-column: 1/3; /* занимает две колонки */
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  grid-column: 1 / 3;
+  height: 350px;
+  overflow: hidden;
 }
 
 .place__2,
 .place__3 {
-  width: 100%;
-  height: 15vh;
-  object-fit: cover;
+  height: 250px;
   overflow: hidden;
+}
+
+.place__1 img,
+.place__2 img,
+.place__3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /*# sourceMappingURL=place.css.map */
