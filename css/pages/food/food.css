@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .h1__food {
   font-family: Inter, sans-serif;
   font-weight: 900;
@@ -30,15 +31,23 @@
 }
 
 .grid__food {
-  align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr; /* Левая колонка меньше */
+  grid-template-rows: auto auto;
+  gap: 20px;
+  width: 100%;
+  align-items: start;
 }
 
 .item__1 {
-  width: 50%;
-  background-color: black;
+  width: auto;
+}
+
+.grid__food p {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgb(240, 240, 240); /* Для наглядности */
+  word-break: break-word;
 }
 
 /*# sourceMappingURL=food.css.map */

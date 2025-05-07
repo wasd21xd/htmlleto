@@ -29,14 +29,22 @@
   width: 50%;
 }
 
-.grid__food{
-  align-items: center;
+.grid__food {
   display: grid;
-  grid-template-columns: 1fr 1fr ;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr; /* Левая колонка меньше */
+  grid-template-rows: auto auto;
+  gap: 20px;
+  width: 100%;
+  align-items: start;
 }
 
 .item__1{
-  width: 50%;
-  background-color: black;
+  width: auto;
+}
+
+.grid__food p {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgba(240, 240, 240, 1); /* Для наглядности */
+  word-break: break-word;
 }
