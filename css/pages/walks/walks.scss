@@ -23,7 +23,6 @@
   font-weight: 900;
   color: rgba(153, 126, 172, 1);
   font-size: clamp(40px,4vh,50px);
-  padding-bottom: 25px;
 }
 
 .text__walks{
@@ -31,7 +30,6 @@
   font-weight: 400;
   font-size: clamp(20px, 2vh, 27px);
   color: rgba(119, 92, 138, 1);
-  padding-top: 20px;
 }
 
 .span__walks{
@@ -53,29 +51,23 @@ width: 50%;
   padding-top: 80px;
 
 }
-
-.grid__walks{
-  padding-top: 130px;
-  padding-left: 250px;
-}
-.img__grid2{
-  grid-column: 1 / 3;
-  overflow: hidden;
-}
-
-.img__grid1,
-.img__grid {
-  height: 250px;
-  overflow: hidden;
-}
-
-.img__grid, .img__grid1, .img__grid2 {
+.grid__walks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   width: 100%;
-  height: auto; /* или нужная тебе высота */
-  object-fit: cover;
+}
+
+.img__grid img,
+.img__grid2 img,
+.img__grid1 img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
-.grid__walks{
-
+/* Нижнее изображение — на всю ширину */
+.img__grid2 {
+  grid-column: 1 / -1;
 }
