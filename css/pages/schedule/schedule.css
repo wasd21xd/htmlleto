@@ -3,6 +3,7 @@
   display: flex;
   margin-top: 7vw;
   gap: 50px;
+  padding-bottom: 120px;
 }
 
 .schedule-container {
