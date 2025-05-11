@@ -1,0 +1,47 @@
+.tariff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.tariff-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.period {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 30px;
+  color: #333;
+}
+
+.circles {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #592E76;
+  border-radius: 50%;
+}
+
+.circle.filled {
+  background-color: #592E76;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  color: #592E76;
+}

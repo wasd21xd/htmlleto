@@ -75,7 +75,7 @@
   display: inline-block;
   background-color: #FFE187;
   color: #775C8A;
-  padding: 8px 12px;
+  padding: 8px 3px;
   border-radius: 16px;
   font-size: clamp(10px, 3.5vw, 20px); /* Диапазон дат */
   font-weight: 500;
