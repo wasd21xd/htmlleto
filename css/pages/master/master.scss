@@ -4,6 +4,7 @@
   gap: 200px;
 }
 .left__master{
+  flex: 1 1 800px;
   width: 50%;
   height: auto;
 }
@@ -16,7 +17,7 @@
 }
 
 .text__master{
-  padding-top: 70px;
+  padding-top: 20px;
   font-family: Inter, sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 4vh, 28px);
@@ -37,7 +38,7 @@
   background: rgba(255, 253, 233, 0.71);
   box-shadow: 0px 1.85px 11.11px 0px rgba(0, 0, 0, 0.25);
   border-radius: 52px;
-  margin-top: 80px;
+  margin-top: 40px;
 
   overflow-wrap: break-word; /* переносить длинные слова */
   word-break: break-word; /* принудительный разрыв слова при необходимости */
@@ -77,9 +78,37 @@
 .right__master{
   width: 50%;
   height: auto;
+  flex: 1 1 1100px;
 }
 
 .img__master{
   width: 100%;
   height: auto;
+}
+
+
+@media (max-width: 1440px) {
+  .master__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left__master,
+  .right__master {
+    width: 100%;
+    flex: none;
+  }
+
+  .block__text__master {
+    width: 100%;
+  }
+
+  .img__master {
+    width: 100%;     /* уменьшает размер картинки */
+    max-width: 500px; /* ограничивает максимум */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* выравнивает по центру */
+  }
 }

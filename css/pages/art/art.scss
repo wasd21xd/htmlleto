@@ -1,85 +1,47 @@
-.master__container{
+.art__container {
   display: flex;
-  padding-top: 120px;
+  flex-direction: row; /* Картинка слева, текст справа на больших экранах */
+  padding-top: 200px;
   gap: 200px;
+  align-items: flex-start;
 }
-.left__master{
+
+.left__art,
+.right__art {
   width: 50%;
-  height: auto;
 }
 
-.logo__master{
-  font-family: Inter, sans-serif;
-  font-weight: 900;
-  font-size: clamp(50px, 4vh, 60px);
-  color: rgba(153, 126, 172, 1);
-}
-
-.text__master{
-  padding-top: 70px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  font-size: clamp(24px, 4vh, 28px);
-  color: rgba(119, 92, 138, 1);
-}
-
-.span__master{
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  font-size: clamp(24px, 4vh, 28px);
-  color: rgba(119, 92, 138, 1);
-}
-
-.block__text__master {
-  width: 70%;
-  max-width: 100%; /* не даст блоку выйти за родителя */
-  height: auto;
-  background: rgba(255, 253, 233, 0.71);
-  box-shadow: 0px 1.85px 11.11px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 52px;
-  margin-top: 80px;
-
-  overflow-wrap: break-word; /* переносить длинные слова */
-  word-break: break-word; /* принудительный разрыв слова при необходимости */
-  padding: 20px; /* добавим отступы, чтобы текст не прилипал */
-  box-sizing: border-box; /* чтобы padding не расширял блок */
-}
-
-.name__block{
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  font-size:clamp(23px, 4vh, 27px);
-  color: rgba(119, 92, 138, 1);
-  padding-left: 20px;
-}
-
-.ul__master{
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-.item__li{
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  font-size: clamp(23px, 4vh, 27px);
-  color: rgba(119, 92, 138, 1);
-
-}
-
-.text__master-block{
-  padding-top: 20px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  font-size: clamp(24px, 4vh, 28px);
-  color: rgba(119, 92, 138, 1);
-}
-
-.right__master{
-  width: 50%;
-  height: auto;
-}
-
-.img__master{
+.img__art {
   width: 100%;
   height: auto;
+}
+
+.img__master1{
+  width: 100%;
+  height: auto;
+}
+/* ✅ Медиа-запрос — на экранах <=1440px: текст сверху, картинка снизу */
+@media (max-width: 1440px) {
+  .art__container {
+    flex-direction: column-reverse; /* меняем направление — колонка */
+    align-items: flex-start; /* выравнивание по левому краю */
+    gap: 60px;
+  }
+
+  .right__art,
+  .left__art {
+    width: 100%;
+  }
+
+  .img__art {
+    width: 100%;     /* уменьшает размер картинки */
+    max-width: 500px; /* ограничивает максимум */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* выравнивает по центру */
+  }
+
+  .block__text__master {
+    width: 100%;
+  }
 }

@@ -1,6 +1,7 @@
 .walks__container {
   display: flex;
   gap: 20px;
+  padding-bottom: 200px;
 }
 
 .left__walks {

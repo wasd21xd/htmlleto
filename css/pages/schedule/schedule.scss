@@ -6,68 +6,242 @@
 }
 
 
-.schedule-container {
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #fff; /* Белый фон страницы как на скриншоте */
+  color: #333;
+  padding: 20px;
+  display: flex; /* Для центрирования блока, если нужно */
+  justify-content: center; /* Для центрирования блока, если нужно */
+  align-items: flex-start; /* Для центрирования блока, если нужно */
+  min-height: 100vh; /* Для демонстрации */
+}
+
+/* Color Variables */
+:root {
+  --main-title-color: #4A3F6D;
+  --icon-stroke-color: #7B6BAD; /* Чуть светлее для иконки */
+
+  --duration-bg: #EAE6F0;
+  --duration-text: #5C527F;
+
+  --time-slot-bg: #5C527F;
+  --time-slot-text: #FFFFFF;
+
+  --activity-light-bg: #F7F7F7;
+  --activity-light-text: #4A4A4A;
+
+  --activity-purple-bg: #6A4C9C;
+  --activity-purple-text: #FFFFFF;
+
+  --activity-yellow-bg: #FDF1D6;
+  --activity-yellow-text: #795548; /* Коричневатый для желтого фона */
+
+  --item-border-radius: 18px; /* Общий радиус для плашек */
+  --base-font-size: 13px;
+  --small-font-size: 12px;
+}
+
+.daily-schedule-block {
+  display: flex;
+  gap: 40px; /* Пространство между списком и заголовком/иконкой */
+  align-items: flex-start; /* Выравнивание по верху */
+  max-width: 900px; /* Максимальная ширина для десктопа */
+  width: 100%;
+}
+
+.schedule-list-column {
+  flex: 3; /* Список занимает больше места */
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Расстояние между элементами расписания */
-  width: 100%; /* Или задайте макс. ширину, например max-width: 700px; */
-  max-width: 800px;
+  gap: 10px; /* Пространство между элементами расписания */
 }
+
+.schedule-title-column {
+  flex: 1.5; /* Колонка с заголовком */
+  text-align: center;
+  padding-top: 10px; /* Небольшой отступ сверху для выравнивания с первым элементом */
+}
+
+.main-title {
+  font-size: 36px;
+  color: var(--main-title-color);
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.schedule-icon svg {
+  width: 120px; /* Размер иконки */
+  height: 120px;
+}
+
+.dashed-circle-animation {
+  /* stroke-dashoffset: 100;
+  animation: dash 1.5s linear forwards; */
+  /* Анимация штриховки (опционально) */
+}
+
+/* @keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+} */
 
 .schedule-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-width: 600px;
+  display: grid;
+  grid-template-columns: 90px 145px 1fr; /* Длительность | Время | Описание */
+  gap: 10px;
+  align-items: stretch; /* Растягиваем плашки по высоте ячейки */
 }
 
-.duration-tag {
-  font-size: 14px;
-  color: #a39fc9; /* Лиловый цвет для "1,5 часа" */
-  margin-right: 15px; /* Отступ справа от тега длительности */
-  flex-shrink: 0; /* Чтобы тег не сжимался */
-  width: 7.5%; /* Примерная ширина, чтобы выровнять time-slot */
-  text-align: right; /* Выравнивание текста в теге по правому краю для лучшего вида */
+.duration-cell {
+  display: flex; /* Для выравнивания индикатора, если он есть */
+  align-items: center;
+  justify-content: center;
+}
+
+.duration-indicator,
+.time-slot,
+.activity-description {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем текст по умолчанию */
+  padding: 10px 12px;
+  border-radius: var(--item-border-radius);
+  font-size: var(--base-font-size);
+  min-height: 42px; /* Минимальная высота для всех плашек */
+  line-height: 1.3;
+}
+
+.duration-indicator {
+  background-color: var(--duration-bg);
+  color: var(--duration-text);
+  font-size: var(--small-font-size); /* Длительность обычно меньшим шрифтом */
+  width: 100%; /* Занять всю ячейку */
 }
 
 .time-slot {
-  background-color: #f0f0f0; /* Светло-серый фон для времени */
-  color: #333;
-  padding: 10px 15px;
-  border-radius: 20px; /* Скругленные углы */
-  font-size: 14px;
+  background-color: var(--time-slot-bg);
+  color: var(--time-slot-text);
   font-weight: 500;
-  margin-right: 10px; /* Отступ между временем и описанием */
-  min-width: 100px; /* Минимальная ширина для блока времени */
-  text-align: center;
-  flex-shrink: 0;
 }
-
-/* Компенсация отсутствия .duration-tag для выравнивания */
-.schedule-item:not(:has(.duration-tag)) .time-slot {
-  margin-left: 75px; /* Примерно равно width .duration-tag + margin-right */
-}
-
 
 .activity-description {
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  flex-grow: 1; /* Чтобы блок описания занимал доступное место */
-  text-align: center;
+  justify-content: flex-start; /* Текст активности слева */
+  text-align: left;
+  padding-left: 20px; /* Отступ слева для текста активности */
+  font-weight: 500;
 }
 
-.activity-yellow {
-  background-color: #fffacd; /* Светло-желтый */
-  color: #5c501a;
+.activity-light {
+  background-color: var(--activity-light-bg);
+  color: var(--activity-light-text);
 }
-
 .activity-purple {
-  background-color: #b19cd9; /* Лиловый/Пурпурный */
-  color: #ffffff;
+  background-color: var(--activity-purple-bg);
+  color: var(--activity-purple-text);
+}
+.activity-yellow {
+  background-color: var(--activity-yellow-bg);
+  color: var(--activity-yellow-text);
 }
 
-.activity-light { /* Для "игры на свежем воздухе" и т.д. - похоже на чуть другой оттенок */
-  background-color: #e6e6fa; /* Лавандовый / очень светло-серый с оттенком */
-  color: #333;
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .daily-schedule-block {
+    gap: 25px;
+    max-width: 95%;
+  }
+  .main-title {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  .schedule-icon svg {
+    width: 100px;
+    height: 100px;
+  }
+  .schedule-item {
+    grid-template-columns: 75px 125px 1fr; /* Уменьшаем колонки */
+    gap: 8px;
+  }
+  .duration-indicator,
+  .time-slot,
+  .activity-description {
+    padding: 8px 10px;
+    font-size: 12px; /* Уменьшаем базовый шрифт плашек */
+    min-height: 38px;
+  }
+  .duration-indicator {
+    font-size: 11px; /* И еще меньше для длительности */
+  }
+  .activity-description {
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .daily-schedule-block {
+    flex-direction: column; /* Заголовок и иконка сверху */
+    align-items: center; /* Центрируем все */
+    gap: 30px;
+  }
+  .schedule-list-column {
+    width: 100%; /* Список на всю ширину */
+    order: 2; /* Список идет после заголовка */
+  }
+  .schedule-title-column {
+    width: 100%;
+    order: 1; /* Заголовок первый */
+    padding-top: 0;
+  }
+  .main-title {
+    font-size: 28px;
+  }
+  .schedule-item {
+    /* Можно сделать 2 колонки: Время | Описание, а длительность убрать или перенести */
+    /* Либо оставить 3, но они будут у́же */
+    grid-template-columns: 70px 110px 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .main-title {
+    font-size: 24px;
+  }
+  .schedule-icon svg {
+    width: 80px;
+    height: 80px;
+  }
+  .schedule-item {
+    /* Переход к вертикальному расположению элементов внутри schedule-item */
+    grid-template-columns: 1fr; /* Каждый элемент на новой строке */
+    gap: 6px;
+  }
+  .duration-cell {
+    /* Скрываем пустую ячейку, если она не нужна или стилизуем иначе */
+    min-height: 0; /* Если она была пустой, чтобы не занимала место */
+  }
+  .duration-indicator,
+  .time-slot,
+  .activity-description {
+    width: 100%;
+    justify-content: center; /* Центрируем текст, если он теперь на всю ширину */
+    text-align: center;
+    padding-left: 12px; /* Общий паддинг */
+    font-size: 13px; /* Можно чуть увеличить шрифт для читаемости */
+  }
+  .duration-indicator {
+    font-size: 12px;
+  }
 }
